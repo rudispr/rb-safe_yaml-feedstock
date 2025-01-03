@@ -11,17 +11,16 @@ source:
 
 build:
   noarch: generic
-  number: 0
+  number: 1
   script:
     - gem install --norc -l -V --ignore-dependencies {{ name }}-{{ version }}.gem
     - gem unpack {{ name }}-{{ version }}.gem
-  skip: {{ win }}
 
 requirements:
   host:
     - ruby
   run:
-    - ruby
+    - {{ pin_compatible('ruby', max_pin='x.x') }}
 
 test:
   commands:
