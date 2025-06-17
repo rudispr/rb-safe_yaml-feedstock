@@ -1,5 +1,7 @@
 {% set name = "safe_yaml" %}
 {% set version = "1.0.5" %}
+{% set hash = "a6ac2d64b7eb027bdeeca1851fe7e7af0d668e133e8a88066a0c6f7087d9f848" %}
+{% set build = 2 %}
 
 package:
   name: rb-{{ name|lower }}
@@ -7,11 +9,11 @@ package:
 
 source:
   url: https://rubygems.org/downloads/{{ name }}-{{ version }}.gem
-  sha256: a6ac2d64b7eb027bdeeca1851fe7e7af0d668e133e8a88066a0c6f7087d9f848
+  sha256: {{ hash }}
 
 build:
   noarch: generic
-  number: 1
+  number: {{ build }}
   script:
     - gem install --norc -l -V --ignore-dependencies {{ name }}-{{ version }}.gem
     - gem unpack {{ name }}-{{ version }}.gem
